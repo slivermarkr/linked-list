@@ -3,9 +3,7 @@ class Linkedlist {
     this.head = new Node(null, null);
   }
 
-  printHead() {
-    console.log(this.head);
-  }
+  append(item) {}
 }
 
 class Node {
@@ -16,4 +14,6 @@ class Node {
 }
 
 const list = new Linkedlist();
-console.log(list.printHead());
+list.append("dog");
+list.append("cat");
+console.log(list.head.next);
