@@ -69,6 +69,21 @@ class Linkedlist {
       }
     }
   }
+
+  pop() {
+    if (this.head === null) return;
+
+    let curr = this.head;
+    let prev = null;
+
+    while (curr.next !== null) {
+      prev = curr;
+      curr = curr.next;
+      if (curr.next === null) {
+        prev.next = null;
+      }
+    }
+  }
 }
 
 const list = new Linkedlist();
@@ -78,5 +93,7 @@ list.append("fish");
 list.append("bird");
 list.prepend("arf");
 list.append("lizard");
+list.pop();
 console.log(list.getList());
-console.log(list.at(5));
+console.log(list.getLast());
+// console.log(list.at(5));
