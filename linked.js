@@ -91,10 +91,23 @@ class Linkedlist {
       if (temp.val === value) {
         return true;
       } else {
-        return false;
+        temp = temp.next;
+      }
+    }
+    return false;
+  }
+
+  find(value) {
+    let temp = this.head;
+    let index = 0;
+    while (temp !== null) {
+      if (temp.val === value) {
+        return index;
       }
       temp = temp.next;
+      index++;
     }
+    return null;
   }
 }
 
@@ -106,5 +119,6 @@ list.append("bird");
 list.prepend("arf");
 list.append("lizard");
 console.log(list.getList());
-console.log(list.contains("salmon"));
+console.log(list.find("arf"));
+console.log(list.at(0));
 // console.log(list.at(5));
