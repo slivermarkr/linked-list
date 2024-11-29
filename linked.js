@@ -1,3 +1,10 @@
+class Node {
+  constructor(val = null, next = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
+
 class Linkedlist {
   constructor() {
     this.head = undefined;
@@ -49,12 +56,18 @@ class Linkedlist {
       }
     }
   }
-}
 
-class Node {
-  constructor(val = null, next = null) {
-    this.val = val;
-    this.next = next;
+  at(index) {
+    let temp = this.getList();
+    let count = 0;
+    if (index === 0) return temp;
+    while (count <= index) {
+      temp = temp.next;
+      ++count;
+      if (count === index) {
+        return temp;
+      }
+    }
   }
 }
 
@@ -65,5 +78,5 @@ list.append("fish");
 list.append("bird");
 list.prepend("arf");
 list.append("lizard");
-console.log(list.getLast());
-console.log(list.size());
+console.log(list.getList());
+console.log(list.at(5));
