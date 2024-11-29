@@ -84,6 +84,18 @@ class Linkedlist {
       }
     }
   }
+
+  contains(value) {
+    let temp = this.head;
+    while (temp !== null) {
+      if (temp.val === value) {
+        return true;
+      } else {
+        return false;
+      }
+      temp = temp.next;
+    }
+  }
 }
 
 const list = new Linkedlist();
@@ -93,7 +105,6 @@ list.append("fish");
 list.append("bird");
 list.prepend("arf");
 list.append("lizard");
-list.pop();
 console.log(list.getList());
-console.log(list.getLast());
+console.log(list.contains("salmon"));
 // console.log(list.at(5));
