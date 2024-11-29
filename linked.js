@@ -29,6 +29,26 @@ class Linkedlist {
       temp.next = new Node(item);
     }
   }
+
+  size() {
+    let temp = this.getList();
+    let count = 0;
+    while (temp !== null) {
+      temp = temp.next;
+      ++count;
+    }
+    return count;
+  }
+
+  getLast() {
+    let temp = this.getList();
+    while (temp !== null) {
+      temp = temp.next;
+      if (temp.next === null) {
+        return temp;
+      }
+    }
+  }
 }
 
 class Node {
@@ -44,4 +64,6 @@ list.append("cat");
 list.append("fish");
 list.append("bird");
 list.prepend("arf");
-console.log(list.getList());
+list.append("lizard");
+console.log(list.getLast());
+console.log(list.size());
