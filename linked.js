@@ -119,6 +119,5 @@ list.append("bird");
 list.prepend("arf");
 list.append("lizard");
 console.log(list.getList());
-console.log(list.find("arf"));
-console.log(list.at(0));
+console.log(list.find("salmon"));
 // console.log(list.at(5));
