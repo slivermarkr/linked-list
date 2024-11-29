@@ -7,9 +7,13 @@ class Linkedlist {
     return this.head;
   }
 
-  addFirst(item) {
+  prepend(item) {
     if (!this.head) {
       this.head = new Node(item);
+    } else {
+      let list = this.getList();
+      this.head = new Node(item);
+      this.head.next = list;
     }
   }
 
@@ -17,7 +21,7 @@ class Linkedlist {
     let temp = this.head;
 
     if (!this.head) {
-      this.addFirst(item);
+      this.prepend(item);
     } else {
       while (temp.next !== null) {
         temp = temp.next;
@@ -39,5 +43,5 @@ list.append("dog");
 list.append("cat");
 list.append("fish");
 list.append("bird");
+list.prepend("arf");
 console.log(list.getList());
-console.log(list.getList().next.next.next);
