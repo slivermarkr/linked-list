@@ -109,6 +109,19 @@ class Linkedlist {
     }
     return null;
   }
+
+  toString() {
+    let temp = this.head;
+    let string = "";
+    while (temp !== null) {
+      string += ` ${temp.val} ->`;
+      if (temp.next == null) {
+        string += ` ${temp.val}`;
+      }
+      temp = temp.next;
+    }
+    return string;
+  }
 }
 
 const list = new Linkedlist();
@@ -119,5 +132,5 @@ list.append("bird");
 list.prepend("arf");
 list.append("lizard");
 console.log(list.getList());
-console.log(list.find("salmon"));
+console.log(list.toString());
 // console.log(list.at(5));
