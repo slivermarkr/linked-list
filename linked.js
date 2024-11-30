@@ -123,17 +123,36 @@ class Linkedlist {
     return string;
   }
   // TODO: insertAt(value, index)
-  insertAt(value, index) {}
+  insertAt(value, index) {
+    let prev = null;
+    let curr = this.head;
+    let count = 0;
+
+    while (curr !== null || count < index) {
+      if (count === index) {
+        const newNode = new Node(value);
+        prev.next = newNode;
+        newNode.next = curr;
+        return;
+      } else {
+        prev = curr;
+        curr = curr.next;
+        count++;
+      }
+    }
+    // we'll have and curr and prev
+  }
   // TODO: removeAt(value, index)
 }
 
 const list = new Linkedlist();
 list.append("dog");
 list.append("cat");
-list.append("fish");
-list.append("bird");
-list.prepend("arf");
-list.append("lizard");
+list.insertAt("fish", 1);
+// list.append("fish");
+// list.append("bird");
+// list.prepend("arf");
+// list.append("lizard");
 console.log(list.getList());
 console.log(list.toString());
 // console.log(list.at(5));
