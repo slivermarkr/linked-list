@@ -1,16 +1,16 @@
-class Node {
+export class Node {
   constructor(val = null, next = null) {
     this.val = val;
     this.next = next;
   }
 }
 
-class Linkedlist {
+export class Linkedlist {
   constructor() {
     this.head = undefined;
   }
 
-  getList() {
+  entry() {
     return this.head;
   }
 
@@ -18,7 +18,7 @@ class Linkedlist {
     if (!this.head) {
       this.head = new Node(item);
     } else {
-      let list = this.getList();
+      let list = this.head;
       this.head = new Node(item);
       this.head.next = list;
     }
@@ -38,7 +38,7 @@ class Linkedlist {
   }
 
   size() {
-    let temp = this.getList();
+    let temp = this.head;
     let count = 0;
     while (temp !== null) {
       temp = temp.next;
@@ -47,8 +47,8 @@ class Linkedlist {
     return count;
   }
 
-  getLast() {
-    let temp = this.getList();
+  tail() {
+    let temp = this.head;
     while (temp !== null) {
       temp = temp.next;
       if (temp.next === null) {
@@ -58,7 +58,7 @@ class Linkedlist {
   }
 
   at(index) {
-    let temp = this.getList();
+    let temp = this.head;
     let count = 0;
     if (index === 0) return temp;
     while (count <= index) {
@@ -164,16 +164,3 @@ class Linkedlist {
     }
   }
 }
-
-const list = new Linkedlist();
-list.append("dog");
-list.append("cat");
-list.insertAt("fish", 2);
-list.removeAt(2);
-// list.append("fish");
-// list.append("bird");
-// list.prepend("arf");
-// list.append("lizard");
-console.log(list.getList());
-console.log(list.toString());
-// console.log(list.at(5));
