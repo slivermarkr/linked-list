@@ -112,16 +112,19 @@ class Linkedlist {
 
   toString() {
     let temp = this.head;
-    let string = "";
-    while (temp !== null) {
-      string += ` ${temp.val} ->`;
-      if (temp.next == null) {
-        string += ` ${temp.val}`;
-      }
+    let string = ``;
+    while (temp) {
+      string += ` (${temp.val}) ->`;
       temp = temp.next;
+    }
+    if (temp === null) {
+      string += ` ${temp}`;
     }
     return string;
   }
+  // TODO: insertAt(value, index)
+  insertAt(value, index) {}
+  // TODO: removeAt(value, index)
 }
 
 const list = new Linkedlist();
