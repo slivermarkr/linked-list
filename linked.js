@@ -128,7 +128,7 @@ class Linkedlist {
     let curr = this.head;
     let count = 0;
 
-    while (curr !== null || count < index) {
+    while (curr !== null || count <= index) {
       if (count === index) {
         const newNode = new Node(value);
         prev.next = newNode;
@@ -140,15 +140,36 @@ class Linkedlist {
         count++;
       }
     }
-    // we'll have and curr and prev
   }
-  // TODO: removeAt(value, index)
+
+  // TODO: removeAt(value)
+  removeAt(index) {
+    let prev = null;
+    let curr = this.head;
+    let count = 0;
+
+    while (curr !== null) {
+      if (index === count) {
+        if (prev === null) {
+          this.head = curr.next;
+          return;
+        }
+        prev.next = curr.next;
+        return;
+      } else {
+        prev = curr;
+        curr = curr.next;
+        count++;
+      }
+    }
+  }
 }
 
 const list = new Linkedlist();
 list.append("dog");
 list.append("cat");
-list.insertAt("fish", 1);
+list.insertAt("fish", 2);
+list.removeAt(2);
 // list.append("fish");
 // list.append("bird");
 // list.prepend("arf");
